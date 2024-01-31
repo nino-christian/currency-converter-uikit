@@ -6,23 +6,52 @@
 //
 
 import XCTest
+@testable import currency_converter
 
 final class ConverterViewModelTest: XCTestCase {
 
+    let mockService = MockService()
+    let mockCoreData = CoreDataStorage()
+    var sut: ConverterViewModel!
+    
     override func setUpWithError() throws {
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+        sut = ConverterViewModel(apiService: mockService, 
+                                 persistentStorage: mockCoreData)
     }
 
     override func tearDownWithError() throws {
+        
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    
+    
+    @MainActor
+    func testFetchDataFromService() async throws {
+        
+        let expectation = XCTestExpectation(description: "Data fetch. Data should be fetched")
+        
+        var resultData: [CurrencyModel?] = []
+        let sampleData = [ CurrencyModel(name: "AED", rate: 3.6729),
+                           CurrencyModel(name: "AFN", rate: 72.5),
+                           CurrencyModel(name: "ALL", rate: 95.6),
+                           CurrencyModel(name: "AMD", rate: 405.332115),
+                           CurrencyModel(name: "ANG", rate: 1.801358),
+                           CurrencyModel(name: "AOA", rate: 832.5)
+                  ]
+        
+        
+        
+        await sut.getCurrencies()
+        sut.currencyRates.sink { _ in
+        } receiveValue: { currencies in
+            resultData = currencies
+            expectation.fulfill()
+        }
+        .store(in: &sut.cancellables)
+        
+        await fulfillment(of: [expectation], timeout: 5, enforceOrder: true)
+        
+        XCTAssertEqual(resultData, sampleData, "Property should have data")
     }
 
     func testPerformanceExample() throws {
@@ -33,3 +62,17 @@ final class ConverterViewModelTest: XCTestCase {
     }
 
 }
+
+class MockService: APIServiceProtocol {
+    func getCurrencies(baseCurrency: String) async throws -> [currency_converter.CurrencyModel?] {
+        let currencies: [CurrencyModel?] = [ CurrencyModel(name: "AED", rate: 3.6729),
+                                             CurrencyModel(name: "AFN", rate: 72.5),
+                                             CurrencyModel(name: "ALL", rate: 95.6),
+                                             CurrencyModel(name: "AMD", rate: 405.332115),
+                                             CurrencyModel(name: "ANG", rate: 1.801358),
+                                             CurrencyModel(name: "AOA", rate: 832.5)
+                                        ]
+        return currencies
+    }
+}
+

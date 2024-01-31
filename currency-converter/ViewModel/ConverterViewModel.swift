@@ -11,7 +11,7 @@ import Combine
 
 protocol ConverterViewModelProtocol: AnyObject {
     func getCurrencies() async
-    
+    func fetchCurrenciesFromStorage() async throws -> [CurrencyModel?]
 }
 
 final class ConverterViewModel: ConverterViewModelProtocol {
@@ -19,11 +19,11 @@ final class ConverterViewModel: ConverterViewModelProtocol {
     var cancellables = Set<AnyCancellable>()
     let currencyRates = PassthroughSubject<[CurrencyModel?], Error>()
     
-    private var apiService: APIService
+    private var apiService: APIServiceProtocol
     private var persistentStorage: CoreDataStorage
     private let connectivity = ConnectivityManager.shared
     
-    init(apiService: APIService, persistentStorage: CoreDataStorage) {
+    init(apiService: APIServiceProtocol, persistentStorage: CoreDataStorage) {
         self.apiService = apiService
         self.persistentStorage = persistentStorage
     }

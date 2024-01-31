@@ -14,8 +14,8 @@
             filePath = "currency-converter/PersistentStorage/CoreData/CoreDataStorage.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
             landmarkName = "persistentContainer"
             landmarkType = "24">
          </BreakpointContent>
@@ -49,6 +49,22 @@
             startingLineNumber = "316"
             endingLineNumber = "316"
             landmarkName = "textFieldDidChange(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9759ADD3-23B4-456F-9BD9-8CB00A76B811"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "currency-converter/Repository/APIRepository.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "48"
+            endingLineNumber = "48"
+            landmarkName = "getCurrencies(baseCurrency:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

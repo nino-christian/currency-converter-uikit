@@ -15,9 +15,9 @@ protocol APIServiceProtocol: AnyObject {
 final class APIService: APIServiceProtocol {
 
     private var persistentStorage: CoreDataStorage
-    private var apiRepository: APIRepository
+    private var apiRepository: APIRepositoryProtocol
     
-    init(apiRepository: APIRepository, persistentStorage: CoreDataStorage) {
+    init(apiRepository: APIRepositoryProtocol, persistentStorage: CoreDataStorage) {
         self.apiRepository = apiRepository
         self.persistentStorage = persistentStorage
     }
@@ -85,4 +85,8 @@ final class APIService: APIServiceProtocol {
             }
         }
     }
+}
+
+class MockRepository {
+    
 }

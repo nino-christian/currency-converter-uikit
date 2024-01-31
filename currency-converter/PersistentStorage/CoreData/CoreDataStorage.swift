@@ -8,7 +8,12 @@
 import Foundation
 import CoreData
 
-final class CoreDataStorage {
+protocol CoreDataStorageProtocol: AnyObject {
+    func saveContext()
+    func performBackgroundTask(_ callBlock: @escaping (NSManagedObjectContext) -> Void)
+}
+
+final class CoreDataStorage: CoreDataStorageProtocol{
     
     // MARK: - Core Data stack
     private lazy var persistentContainer: NSPersistentContainer = {
