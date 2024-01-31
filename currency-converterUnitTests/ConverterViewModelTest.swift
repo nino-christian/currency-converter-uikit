@@ -1,5 +1,5 @@
 //
-//  currency_converterUnitTests.swift
+//  ConverterViewModelTest.swift
 //  currency-converterUnitTests
 //
 //  Created by DNA-User on 2/1/24.
@@ -7,7 +7,7 @@
 
 import XCTest
 
-final class currency_converterUnitTests: XCTestCase {
+final class ConverterViewModelTest: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
