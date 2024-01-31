@@ -14,8 +14,9 @@ class ConverterViewController: UIViewController {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Enter Amount Here"
+        textField.accessibilityIdentifier = "InputCurrencyTextField"
         textField.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
-        textField.textColor = AppTheme.AppColor.watermelon.uiColor
+        textField.textColor = AppTheme.AppColor.navyBlue.uiColor
         textField.keyboardType = .decimalPad
         textField.layer.borderColor = AppTheme.AppColor.lightGray.uiColor.cgColor
         textField.layer.borderWidth = 1
@@ -32,6 +33,7 @@ class ConverterViewController: UIViewController {
         let textField = UITextField()
         textField.translatesAutoresizingMaskIntoConstraints = false
         textField.placeholder = "Converted Amount Here"
+        textField.accessibilityIdentifier = "OutputCurrencyTextField"
         textField.isUserInteractionEnabled = false
         textField.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         textField.textColor = AppTheme.AppColor.suvaGray.uiColor
@@ -49,8 +51,9 @@ class ConverterViewController: UIViewController {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor( AppTheme.AppColor.white.uiColor, for: .normal)
-        button.backgroundColor = AppTheme.AppColor.watermelon.uiColor
+        button.backgroundColor = AppTheme.AppColor.navyBlue.uiColor.withAlphaComponent(0.75)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        button.accessibilityIdentifier = "InputCurrencyButton"
         button.layer.cornerRadius = 8
         
         return button
@@ -60,8 +63,9 @@ class ConverterViewController: UIViewController {
         let button = UIButton(type: .system)
         button.translatesAutoresizingMaskIntoConstraints = false
         button.setTitleColor( AppTheme.AppColor.white.uiColor, for: .normal)
-        button.backgroundColor = AppTheme.AppColor.watermelon.uiColor
+        button.backgroundColor = AppTheme.AppColor.navyBlue.uiColor.withAlphaComponent(0.75)
         button.titleLabel?.font = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        button.accessibilityIdentifier = "OutputCurrencyButton"
         button.layer.cornerRadius = 8
         
         return button
@@ -105,12 +109,15 @@ class ConverterViewController: UIViewController {
         tableView.translatesAutoresizingMaskIntoConstraints = false
         tableView.allowsSelection = false
         tableView.separatorStyle = .singleLine
+        tableView.separatorInset = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        tableView.accessibilityIdentifier = "CurrenciesTableView"
         tableView.register(CurrencyTableViewCell.self, forCellReuseIdentifier: CurrencyTableViewCell.identifer)
         
         return tableView
     }()
     
-    private var popupView: PopupView = PopupView()
+    //private var popupView: PopupView?
+    private var selectedButton: UIButton?
     
     private var viewModel: ConverterViewModel
     private var currencies: [CurrencyModel?] = []
@@ -149,7 +156,7 @@ extension ConverterViewController: UITextFieldDelegate {
         self.title = "Currency Converter"
         self.view.backgroundColor = AppTheme.AppColor.whiteSmoke.uiColor
         self.navigationController?.navigationBar.prefersLargeTitles = true
-        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: AppTheme.AppColor.watermelon.uiColor]
+        self.navigationController?.navigationBar.largeTitleTextAttributes = [NSAttributedString.Key.foregroundColor: AppTheme.AppColor.navyBlue.uiColor.withAlphaComponent(0.8)]
         
         prepareConverterForm()
         prepareObservables()
@@ -213,7 +220,7 @@ extension ConverterViewController: UITextFieldDelegate {
         let baseCurrencyLabel = UILabel()
         let currencyLabel = UILabel()
 
-        headerView.backgroundColor = AppTheme.AppColor.white.uiColor
+        headerView.backgroundColor = AppTheme.AppColor.navyBlue.uiColor.withAlphaComponent(0.7)
         
         headerView.addSubview(hStack)
         hStack.translatesAutoresizingMaskIntoConstraints = false
@@ -221,27 +228,22 @@ extension ConverterViewController: UITextFieldDelegate {
        
         hStack.snp.makeConstraints { make in
             make.leading.equalToSuperview().inset(12)
-            make.top.equalToSuperview().inset(6)
+            make.top.equalToSuperview().inset(12)
             make.trailing.equalToSuperview().inset(12)
-            make.bottom.equalToSuperview().inset(6)
+            make.bottom.equalToSuperview().inset(12)
         }
         
         hStack.addArrangedSubview(baseCurrencyLabel)
         baseCurrencyLabel.font = UIFont.systemFont(ofSize: 15.5, weight: .bold)
-        baseCurrencyLabel.textColor = .black
+        baseCurrencyLabel.textColor = AppTheme.AppColor.white.uiColor
         baseCurrencyLabel.text = "Base Currency"
         
         hStack.addArrangedSubview(currencyLabel)
         currencyLabel.font = UIFont.systemFont(ofSize: 15.5, weight: .bold)
-        currencyLabel.textColor = .black
+        currencyLabel.textColor = AppTheme.AppColor.white.uiColor
         currencyLabel.text = "Currency List"
         
         return headerView
-    }
-    
-    private func preparePopupView() {
-        popupView.delegate = self
-        popupView = PopupView(frame: CGRect(x: <#T##CGFloat#>, y: <#T##CGFloat#>, width: <#T##CGFloat#>, height: <#T##CGFloat#>))
     }
 }
 
@@ -260,15 +262,23 @@ extension ConverterViewController {
         }, receiveValue: { currencyList in
             self.currencies = currencyList
             DispatchQueue.main.async { [weak self] in
-                self?.currenciesTableView.reloadData()
-                self?.selectedInputCurrency = currencyList[0]
-                self?.selectedOutputCurrency = currencyList[0]
-                self?.inputCurrencyButton.setTitle(self?.selectedInputCurrency?.name, for: .normal)
-                self?.outputCurrencyButton.setTitle(self?.selectedOutputCurrency?.name, for: .normal)
-                
+                guard let this = self else { return }
+                this.currenciesTableView.reloadData()
+                this.selectedInputCurrency = currencyList[0]
+                this.selectedOutputCurrency = currencyList[0]
+                this.inputCurrencyButton.setTitle(this.selectedInputCurrency?.name, for: .normal)
+                this.outputCurrencyButton.setTitle(this.selectedOutputCurrency?.name, for: .normal)
             }
         })
         .store(in: &viewModel.cancellables)
+    }
+    
+    private func preparePopUp(_ sender: UIButton) {
+        selectedButton = sender
+        let popupViewController = PopupViewController()
+        popupViewController.delegate = self
+        popupViewController.setValue(currencies: currencies)
+        present(popupViewController, animated: true)
     }
 }
 
@@ -276,7 +286,7 @@ extension ConverterViewController {
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
         inputCurrencyTextField.layer.cornerRadius = 8
-        inputCurrencyTextField.layer.borderColor = AppTheme.AppColor.watermelon.uiColor.cgColor
+        inputCurrencyTextField.layer.borderColor = AppTheme.AppColor.navyBlue.uiColor.withAlphaComponent(0.9).cgColor
         inputCurrencyTextField.layer.borderWidth = 1.5
     }
     
@@ -287,13 +297,10 @@ extension ConverterViewController {
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        let allowedCharacters = CharacterSet.decimalDigits
+        let allowedCharacters = CharacterSet(charactersIn: "0123456789.")
         let characterSet = CharacterSet(charactersIn: string)
         return allowedCharacters.isSuperset(of: characterSet)
     }
-    
-
-    
 }
 
 extension ConverterViewController {
@@ -301,18 +308,30 @@ extension ConverterViewController {
     @objc
     private func textFieldDidChange(_ textField: UITextField) {
         if textField == inputCurrencyTextField {
-            outputCurrencyTextField.text = textField.text
+            //let baseCurrency = currencies.first(where: { $0?.name == "USD"})
+            if let text = textField.text,
+               let amount = Double(text),
+               let inputRate = selectedInputCurrency?.rate,
+               let outputRate = selectedOutputCurrency?.rate {
+                let computedResult = viewModel.convertCurrency(amount: amount,
+                                                               from: inputRate,
+                                                               to: outputRate)
+                outputCurrencyTextField.text = String(describing: computedResult)
+            } else {
+                outputCurrencyTextField.text = ""
+            }
+            
         }
     }
     
     @objc
     private func inputCurrencyButtonTapped(_ sender: UIButton) {
-        print("input tapped")
+        preparePopUp(sender)
     }
     
     @objc
     private func outputCurrencyButtonTapped(_ sender: UIButton) {
-        print("output tapped")
+        preparePopUp(sender)
     }
 }
 
@@ -336,31 +355,29 @@ extension ConverterViewController: UITableViewDelegate, UITableViewDataSource {
     
 }
 
-extension ConverterViewController {
-    
-    private func inputCurrencyButtonMenu(currencyList currencies: [CurrencyModel?]) -> UIMenu {
-        
-        let options: [UIAction] = currencies.map { currency in
-            return UIAction(title: currency?.name ?? "N/A") { _ in
-            }
-        }
-        return UIMenu(title: "Select currency", children: options)
-    }
-    
-    private func outputCurrencyButtonMenu(currencyList currencies: [CurrencyModel?]) -> UIMenu {
-        
-        let options: [UIAction] = currencies.map { currency in
-            return UIAction(title: currency?.name ?? "N/A") { _ in
-            }
-        }
-        return UIMenu(title: "Select currency", children: options)
-    }
-}
-
 extension ConverterViewController: PopupViewDelegate {
     func didSelectCurrency(currency: CurrencyModel) {
-        <#code#>
+        dismiss(animated: true, completion: nil)
+        
+        if selectedButton == inputCurrencyButton {
+            inputCurrencyButton.setTitle(currency.name, for: .normal)
+            selectedInputCurrency = currency
+        } else if selectedButton == outputCurrencyButton {
+            outputCurrencyButton.setTitle(currency.name, for: .normal)
+            selectedOutputCurrency = currency
+        } else {}
+        
+        if let text = inputCurrencyTextField.text,
+           let amount = Double(text),
+           let inputRate = selectedInputCurrency?.rate,
+           let outputRate = selectedOutputCurrency?.rate {
+            let computedAmount = viewModel.convertCurrency(amount: amount,
+                                                           from: inputRate,
+                                                           to: outputRate)
+            outputCurrencyTextField.text = String(describing: computedAmount)
+        }
     }
+
 }
 extension ConverterViewController {
     private func fetchCurrencies() {

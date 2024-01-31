@@ -2,7 +2,7 @@
 //  ConverterAPIRepositoryTest.swift
 //  currency-converterUnitTests
 //
-//  Created by DNA-User on 2/1/24.
+//  Created by Nino-Christian on 2/1/24.
 //
 
 import XCTest

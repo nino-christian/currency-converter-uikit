@@ -70,17 +70,16 @@ final class ConverterViewModel: ConverterViewModelProtocol {
         }
     }
     
-    func convertCurrency(amount currencyFrom: Double, to currencyTo: Double, base: Double) -> Double{
+    func convertCurrency(amount: Double, from inputCurrency: Double, to outputCurrency: Double) -> Double{
         
-        // Convert currencyFrom to base: USD // 2350
-        let convertFrom = currencyFrom / base
-          // PHP - USD = 41.64
-        // Convert currencyTo to Base: USD
-        let convertTo = base / currencyTo
-        // USD - SGD = 1.34
-        // Convert convert
-        // PHP - SGD = 55.7976
-        
-        return 0.0
+        // Amount value to USD
+        if amount > 0 {
+            let convertFrom = amount / inputCurrency
+            // USD to Selected output
+            let result = convertFrom * outputCurrency
+            return result
+        } else {
+            return 0
+        }
     }
 }

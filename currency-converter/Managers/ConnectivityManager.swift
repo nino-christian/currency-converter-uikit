@@ -2,7 +2,7 @@
 //  ConnectivityManager.swift
 //  currency-converter
 //
-//  Created by DNA-User on 1/31/24.
+//  Created by Nino-Christian on 1/31/24.
 //
 
 import Foundation

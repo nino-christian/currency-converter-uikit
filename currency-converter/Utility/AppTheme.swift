@@ -24,7 +24,8 @@ struct AppTheme {
              suvaGray,
              lightGray,
              watermelon,
-             white
+             white,
+             black
         
         var uiColor: UIColor {
             switch self {
@@ -40,6 +41,8 @@ struct AppTheme {
                 UIColor(hex: "FD4659") ?? .systemPink
             case .white:
                 UIColor(hex: "FFFFFF") ?? .white
+            case .black:
+                UIColor(hex: "000000") ?? .black
             }
         }
     }

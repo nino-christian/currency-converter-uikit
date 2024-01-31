@@ -60,9 +60,19 @@ class CurrencyTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        prepareViews()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        prepareViews()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -76,6 +86,8 @@ class CurrencyTableViewCell: UITableViewCell {
 extension CurrencyTableViewCell {
     
     private func prepareViews() {
+        
+        backgroundColor = AppTheme.AppColor.whiteSmoke.uiColor
         
         self.contentView.addSubview(hStack)
         hStack.snp.makeConstraints { make in

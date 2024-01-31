@@ -2,7 +2,7 @@
 //  CurrencyModel.swift
 //  currency-converter
 //
-//  Created by DNA-User on 1/30/24.
+//  Created by Nino-Christian on 1/30/24.
 //
 
 import Foundation
