@@ -8,16 +8,30 @@
 import Foundation
 
 
+/// Protocol for APIRepository class
 protocol APIRepositoryProtocol: AnyObject {
     func getCurrencies(baseCurrency: String) async throws -> (Data?, URLResponse)
 }
 
+
+/// Class for App Repository Layer
+/// Used in APIService.swift
 final class APIRepository: APIRepositoryProtocol {
     
     private let urlSession = URLSession.shared
     
+    /**
+    # Fetch data from API
+      - Method for fetching data from API
+     - Use this method when fetching latest currencies from API
+     - Requires:
+        - Parameter <baseCurrency> : String type data use for base currency for the returned rates
+     - Throws:
+        - When URL does not exist
+     - Returns:
+        - <(Data, Reponse)> Tuple
+     **/
     func getCurrencies(baseCurrency: String) async throws -> (Data?, URLResponse) {
-        let httpResponse: HTTPURLResponse
         
         let urlString: String = Endpoint.LatestCurrencies(environment).url
         

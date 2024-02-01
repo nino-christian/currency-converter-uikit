@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Data Model for list of rates under Response Model in [String: Double] type
 struct CurrencyModel: Codable, Equatable {
     var name: String
     var rate: Double

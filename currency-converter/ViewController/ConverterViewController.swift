@@ -8,7 +8,12 @@
 import UIKit
 import SnapKit
 
+
+/// MainViewController
+/// RootViewController
 class ConverterViewController: UIViewController {
+    
+// MARK: VARUABKE DECLARATION AND INITIAL CONFIGURATION
     
     private let inputCurrencyTextField: UITextField = {
         let textField = UITextField()
@@ -128,6 +133,7 @@ class ConverterViewController: UIViewController {
 // MARK: ================================================================================
 // MARK: LIFECYLE
 // MARK: ================================================================================
+    
     init(viewModel: ConverterViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -146,6 +152,7 @@ class ConverterViewController: UIViewController {
         prepareViews()
     }
 }
+
 // MARK: ================================================================================
 // MARK: VIEWS CONFIGURATION
 // MARK: ================================================================================
@@ -304,6 +311,10 @@ extension ConverterViewController {
     }
 }
 
+// MARK: ================================================================================
+// MARK: OBJC FUNCTIONS
+// MARK: ================================================================================
+
 extension ConverterViewController {
     
     @objc
@@ -336,6 +347,10 @@ extension ConverterViewController {
     }
 }
 
+// MARK: ================================================================================
+// MARK: TABLEVIEW CONFIGURATION
+// MARK: ================================================================================
+
 extension ConverterViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return currencies.count
@@ -355,6 +370,10 @@ extension ConverterViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
 }
+
+// MARK: ================================================================================
+// MARK: DELEGATE METHOD
+// MARK: ================================================================================
 
 extension ConverterViewController: PopupViewDelegate {
     func didSelectCurrency(currency: CurrencyModel) {
@@ -380,6 +399,11 @@ extension ConverterViewController: PopupViewDelegate {
     }
 
 }
+
+// MARK: ================================================================================
+// MARK: FUNCTIONS
+// MARK: ================================================================================
+
 extension ConverterViewController {
     private func fetchCurrencies() {
         Task {

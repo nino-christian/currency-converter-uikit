@@ -7,6 +7,7 @@
 
 import Foundation
 
+/// Data Model for Data object returned from repository
 struct ResponseModel: Codable {
     var timestamp: Int
     var base: String

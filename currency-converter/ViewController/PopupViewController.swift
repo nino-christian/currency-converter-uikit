@@ -11,7 +11,14 @@ protocol PopupViewDelegate: AnyObject {
     func didSelectCurrency(currency: CurrencyModel)
 }
 
+/// Used as a container for currency rate selection as input and output
+/// Used in ConverterViewController.swift
+///  
 class PopupViewController: UIViewController {
+    
+    // MARK: ================================================================================
+    // MARK: VARIABLE DECLARATION AND INITIAL CONFIGURATION
+    // MARK: ================================================================================
     
     weak var delegate: PopupViewDelegate?
     private var currencies: [CurrencyModel?] = [] {
@@ -22,6 +29,9 @@ class PopupViewController: UIViewController {
     
     private let tableView: UITableView = UITableView()
     
+    // MARK: ================================================================================
+    // MARK: LIFECYCLE
+    // MARK: ================================================================================
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +39,13 @@ class PopupViewController: UIViewController {
         
         self.view.accessibilityIdentifier = "PopupViewController"
     }
-    
+}
+
+// MARK: ================================================================================
+// MARK: VIEW CONFIGURATION
+// MARK: ================================================================================
+
+extension PopupViewController {
     private func prepareView() {
         
         view.addSubview(tableView)
@@ -47,6 +63,11 @@ class PopupViewController: UIViewController {
         //tableView.reloadData()
     }
 }
+
+
+// MARK: ================================================================================
+// MARK: TABLEVIEW CONFIGURATION
+// MARK: ================================================================================
 
 extension PopupViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

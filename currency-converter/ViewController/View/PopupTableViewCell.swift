@@ -8,7 +8,11 @@
 import UIKit
 
 class PopupTableViewCell: UITableViewCell {
-
+    
+    // MARK: ================================================================================
+    // MARK: VARIABLE DECLARATION AND INITIAL CONFIGURATION
+    // MARK: ================================================================================
+    
     static let identifier: String = "PopupTableViewCell"
     
     private let nameLabel: UILabel = {
@@ -28,6 +32,10 @@ class PopupTableViewCell: UITableViewCell {
         
         return label
     }()
+
+    // MARK: ================================================================================
+    // MARK: LIFECYCLE
+    // MARK: ================================================================================
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -44,6 +52,10 @@ class PopupTableViewCell: UITableViewCell {
         // Initialization code
         prepareView()
     }
+    
+    // MARK: ================================================================================
+    // MARK: VIEW CONFIGURATION
+    // MARK: ================================================================================
     
     private func prepareView() {
         

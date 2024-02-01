@@ -7,8 +7,13 @@
 
 import UIKit
 
+/// Used in ConverterViewController.swift TableView <currenciesTableView>
 class CurrencyTableViewCell: UITableViewCell {
 
+    // MARK: ================================================================================
+    // MARK: VARIABLE DECLARATION AND INITIAL CONFIGURATION
+    // MARK: ================================================================================
+    
     static let identifer = "CurrencyTableViewCell"
     
     private let baseCurrencyLabel: UILabel = { 
@@ -60,6 +65,10 @@ class CurrencyTableViewCell: UITableViewCell {
         return stackView
     }()
     
+    // MARK: ================================================================================
+    // MARK: LIFECYCLE
+    // MARK: ================================================================================
+    
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         prepareViews()
@@ -82,6 +91,10 @@ class CurrencyTableViewCell: UITableViewCell {
         prepareViews()
     }
 }
+
+// MARK: ================================================================================
+// MARK: VIEW CONFIGURATION
+// MARK: ================================================================================
 
 extension CurrencyTableViewCell {
     
