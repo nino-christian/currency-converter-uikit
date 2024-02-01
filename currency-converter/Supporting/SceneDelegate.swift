@@ -28,8 +28,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let homeViewController = ConverterViewController(viewModel: viewModel)
         let navigationController = UINavigationController(rootViewController: homeViewController)
         
-        ConnectivityManager.shared.startMonitoring()
-        
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         

@@ -49,13 +49,14 @@ class ConnectivityManager {
         monitor = NWPathMonitor()
     }
     
-    func startMonitoring() {
+    func startMonitoring(completionHandler: @escaping (NWPath) -> Void ) {
         if isMonitoring {
             return
         }
         monitor.start(queue: queue)
         
         monitor.pathUpdateHandler = { [weak self] path in
+            completionHandler(path)
             if path.status == .satisfied {
                 self?.isConnected = true
             } else {

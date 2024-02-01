@@ -258,25 +258,19 @@ extension ConverterViewController {
     
     func prepareObservables() {
         
-        viewModel.currencyRates.sink(receiveCompletion: { completion in
-            switch completion {
-            case .finished: break
-                // TODO: Do something if finished
-            case .failure(let error):
-                print("Error occured: \(error)")
-                // TODO: Create a pop up dialog
-            }
-        }, receiveValue: { currencyList in
-            self.currencies = currencyList
-            DispatchQueue.main.async { [weak self] in
-                print("UI updated")
+        viewModel.currencyRates.sink(
+            receiveCompletion: { [weak self] completion in
                 guard let this = self else { return }
-                this.currenciesTableView.reloadData()
-                this.selectedInputCurrency = currencyList[0]
-                this.selectedOutputCurrency = currencyList[0]
-                this.inputCurrencyButton.setTitle(this.selectedInputCurrency?.name, for: .normal)
-                this.outputCurrencyButton.setTitle(this.selectedOutputCurrency?.name, for: .normal)
-            }
+                switch completion {
+                    case .finished: break
+                        // TODO: Do something if finished
+                    case .failure(let error):
+                        print("Error occured: \(error)")
+                        this.showAlert(title: "ERROR", message: "Unexpected error occured: \(error)")
+                }
+        }, receiveValue: { [weak self] currencyList in
+            self?.currencies = currencyList
+            self?.handleFetchResult(currencyList: currencyList )
         })
         .store(in: &viewModel.cancellables)
     }
@@ -409,5 +403,31 @@ extension ConverterViewController {
         Task {
             await viewModel.getCurrencies()
         }
+    }
+    
+    private func handleFetchResult(currencyList: [CurrencyModel?]) {
+        DispatchQueue.main.async { [weak self] in
+            guard let this = self else { return }
+            if currencyList.isEmpty &&
+                !ConnectivityManager.shared.isConnected {
+                this.showAlert(title: "No data", message: "No such data exist in local storage. Kindly connect to a network")
+            } else if !ConnectivityManager.shared.isConnected {
+                this.showAlert(title: "No network connection", message: "You are currently not connected to any network. Kindly connection to a network")
+            } else if currencyList.isEmpty {
+                this.showAlert(title: "No data", message: "No such data exist in local storage or you are Offline. Kindly connection to a network")
+            } else {
+                this.currenciesTableView.reloadData()
+                this.selectedInputCurrency = if !currencyList.isEmpty { currencyList[0] } else { CurrencyModel(name: "N/A", rate: 0.0) }
+                this.selectedOutputCurrency = if !currencyList.isEmpty { currencyList[0] } else { CurrencyModel(name: "N/A", rate: 0.0) }
+                this.inputCurrencyButton.setTitle(this.selectedInputCurrency?.name, for: .normal)
+                this.outputCurrencyButton.setTitle(this.selectedOutputCurrency?.name, for: .normal)
+            }
+        }
+    }
+    
+    private func showAlert(title: String, message: String) {
+        let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Okay", style: .default, handler: nil))
+        present(alertController, animated: true)
     }
 }

@@ -8,11 +8,12 @@
 import Foundation
 import CoreData
 import Combine
+import UIKit
 
 /// Protocol for ConverterViewModel class
 protocol ConverterViewModelProtocol: AnyObject {
     func getCurrencies(baseCurrency: String) async
-    func fetchCurrenciesFromStorage() throws
+    func fetchCurrenciesFromStorage()
 }
 
 /// Class for ViewModel layer
@@ -49,43 +50,36 @@ final class ConverterViewModel: ConverterViewModelProtocol {
         - Nothing, access <currencyRate> property  to send data
      **/
     func getCurrencies(baseCurrency: String = "USD") async {
-        if connectivity.isConnected {
-            cancellable = Timer.publish(every: 30 * 60, on: .main, in: .default)
-                        .autoconnect()
-                        .prepend(Date())
-                        .sink { [weak self] _ in
-                            guard let self = self else { return }
-                            print("Timer Fires")
-                            Task {
-                                do {
-                                    let currencies = try await self.apiService.getCurrencies(baseCurrency: baseCurrency)
-                                    self.currencyRates.send(currencies)
-                                } catch {
-                                    self.currencyRates.send(completion: .failure(error))
+        
+        connectivity.startMonitoring { [weak self] path in
+            guard let this = self else { return }
+            if path.status == .satisfied {
+                this.cancellable = Timer.publish(every: 30 * 60, on: .main, in: .default)
+                            .autoconnect()
+                            .prepend(Date())
+                            .sink { [weak self] _ in
+                                guard let self = self else { return }
+                                print("Timer Fires")
+                                Task {
+                                    do {
+                                        let currencies = try await self.apiService.getCurrencies(baseCurrency: baseCurrency)
+                                        self.currencyRates.send(currencies)
+                                    } catch {
+                                        self.currencyRates.send(completion: .failure(error))
+                                    }
                                 }
                             }
-                        }
-//                    do {
-//                        let currencies = try await apiService.getCurrencies(baseCurrency: "USD")
-//                        currencyRates.send(currencies)
-//                    } catch {
-//                        currencyRates.send(completion: .failure(error))
-//                    }
-        } else {
-            do {
+    //                    do {
+    //                        let currencies = try await apiService.getCurrencies(baseCurrency: "USD")
+    //                        currencyRates.send(currencies)
+    //                    } catch {
+    //                        currencyRates.send(completion: .failure(error))
+    //                    }
+            } else { 
                 print("Offline")
-                try fetchCurrenciesFromStorage()
-                currencyRates.sink { _ in
-                    // TODO: Handle Completion
-                } receiveValue: { currencyList in
-                    if currencyList.isEmpty {
-                      // TODO: Show pop up need to connect, data empty
-                    }
-                }
-                .store(in: &cancellables)
-            } catch {
-                // TODO: Show pop up
+                this.fetchCurrenciesFromStorage()
             }
+            
         }
     }
     
@@ -102,7 +96,7 @@ final class ConverterViewModel: ConverterViewModelProtocol {
      - Returns:
         - Nothing, access <currencyRate> property  to assign data
      **/
-    func fetchCurrenciesFromStorage() throws {
+    func fetchCurrenciesFromStorage() {
         persistentStorage.performBackgroundTask { [weak self] context in
            let fetchRequest = NSFetchRequest<Currency>(entityName: "Currency")
             
@@ -115,7 +109,6 @@ final class ConverterViewModel: ConverterViewModelProtocol {
                
                self?.currencyRates.send(currencyList)
            } catch {
-            // TODO: Handle error
                self?.currencyRates.send(completion: .failure(error))
            }
        }

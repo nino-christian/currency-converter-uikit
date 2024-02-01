@@ -32,6 +32,8 @@ final class APIRepository: APIRepositoryProtocol {
         - <(Data, Reponse)> Tuple
      **/
     func getCurrencies(baseCurrency: String) async throws -> (Data?, URLResponse) {
+        var data: Data
+        var response: URLResponse
         
         let urlString: String = Endpoint.LatestCurrencies(environment).url
         
@@ -43,7 +45,6 @@ final class APIRepository: APIRepositoryProtocol {
         ] 
         
         guard let url = urlComponents?.url else {
-            // TODO: Throw Error
             throw APIError.invalidURL("URL does not exists")
         }
         
@@ -56,8 +57,11 @@ final class APIRepository: APIRepositoryProtocol {
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
         
-        let (data, response) = try await urlSession.data(for: request as URLRequest)
-
-        return (data, response)
+        do {
+            (data, response) = try await urlSession.data(for: request as URLRequest)
+            return (data, response)
+        } catch {
+            throw APIError.networkFailure(error)
+        }
     }
 }

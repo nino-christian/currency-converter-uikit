@@ -47,7 +47,6 @@ final class APIService: APIServiceProtocol {
                 if httpResponse.statusCode == 200 {
                     if let data = data {
                         do {
-                            // TODO: Try Parse to Data Model
                             let decoder = JSONDecoder()
                             let responseData: ResponseModel = try decoder.decode(ResponseModel.self, from: data)
                             let currencyList: [CurrencyModel] = responseData.rates.compactMap { (name, rate) in
@@ -57,19 +56,20 @@ final class APIService: APIServiceProtocol {
                             }
                             
                             // call save to local storage
-                            saveToPersistentStorage(currencies: currencyList)
+                            try saveToPersistentStorage(currencies: currencyList)
                             
                             return currencyList
 
                         } catch {
-                            // TODO: Handle decoding error
+                            print(error)
+                            throw APIError.decodingError(error)
                         }
                     }
                 }
             }
         } catch {
-            // TODO: Handle error
-           
+            print(error)
+            throw APIError.requestFailed(error)
         }
         return []
     }
@@ -86,7 +86,7 @@ final class APIService: APIServiceProtocol {
      - Returns:
         - Nothing
      **/
-    private func saveToPersistentStorage(currencies: [CurrencyModel]) {
+    private func saveToPersistentStorage(currencies: [CurrencyModel]) throws {
         persistentStorage.performBackgroundTask { context in
             
             let fetchRequest = NSFetchRequest<Currency>(entityName: "Currency")
@@ -95,7 +95,7 @@ final class APIService: APIServiceProtocol {
                 // Get existing entities
                 let existingEntities = try context.fetch(fetchRequest)
                 
-                currencies.forEach { currency in
+                try currencies.forEach { currency in
                     // Check if it already exist
                     let entityExists = existingEntities.contains { entity in
                         return entity.name == currency.name
@@ -109,13 +109,16 @@ final class APIService: APIServiceProtocol {
                         //self?.persistentStorage.saveContext()
                         do {
                             try context.save()
-                        } catch {}
+                        } catch {
+                            print(error)
+                            throw CoreDataError.saveContextFailed(error)
+                        }
                     } else {
                         // do nothing
                     }
                 }
             } catch {
-                // TODO: Handle fetching entities error
+                print(error)
             }
         }
     }
