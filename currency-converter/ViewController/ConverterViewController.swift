@@ -262,6 +262,7 @@ extension ConverterViewController {
         }, receiveValue: { currencyList in
             self.currencies = currencyList
             DispatchQueue.main.async { [weak self] in
+                print("UI updated")
                 guard let this = self else { return }
                 this.currenciesTableView.reloadData()
                 this.selectedInputCurrency = currencyList[0]

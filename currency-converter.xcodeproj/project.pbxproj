@@ -25,11 +25,11 @@
 		C1B94F222B6AB9AC00B9DB65 /* currency_converterUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B94F212B6AB9AC00B9DB65 /* currency_converterUITestsLaunchTests.swift */; };
 		C1B94F2F2B6AB9C900B9DB65 /* ConverterViewModelTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1B94F2E2B6AB9C900B9DB65 /* ConverterViewModelTest.swift */; };
 		C1C49D9A2B684D1300E419FB /* ResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C49D992B684D1300E419FB /* ResponseModel.swift */; };
-		C1C49DA52B6851DD00E419FB /* CurrencyCoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1C49DA32B6851DD00E419FB /* CurrencyCoreModel.xcdatamodeld */; };
 		C1C49DA72B68546600E419FB /* CurrencyModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C49DA62B68546600E419FB /* CurrencyModel.swift */; };
 		C1C70E272B680B8E0079EEF6 /* Environment.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C70E262B680B8E0079EEF6 /* Environment.swift */; };
 		C1C70E292B680BCC0079EEF6 /* AppConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C70E282B680BCC0079EEF6 /* AppConstants.swift */; };
 		C1C70E2B2B68167A0079EEF6 /* AppErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1C70E2A2B68167A0079EEF6 /* AppErrors.swift */; };
+		C1C85BE22B6B2CEF00C7B6EF /* AppCoreModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = C1C85BE02B6B2CEF00C7B6EF /* AppCoreModel.xcdatamodeld */; };
 		C1DE4FF42B6965E40057A467 /* ConnectivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1DE4FF32B6965E40057A467 /* ConnectivityManager.swift */; };
 		C1F2C0612B6ADAA30054FB12 /* ConverterAPIServiceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F2C0602B6ADAA30054FB12 /* ConverterAPIServiceTest.swift */; };
 		C1F2C0632B6ADACE0054FB12 /* ConverterAPIRepositoryTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1F2C0622B6ADACE0054FB12 /* ConverterAPIRepositoryTest.swift */; };
@@ -85,11 +85,11 @@
 		C1B94F2C2B6AB9C900B9DB65 /* currency-converterUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "currency-converterUnitTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C1B94F2E2B6AB9C900B9DB65 /* ConverterViewModelTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterViewModelTest.swift; sourceTree = "<group>"; };
 		C1C49D992B684D1300E419FB /* ResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseModel.swift; sourceTree = "<group>"; };
-		C1C49DA42B6851DD00E419FB /* CurrencyCoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CurrencyCoreModel.xcdatamodel; sourceTree = "<group>"; };
 		C1C49DA62B68546600E419FB /* CurrencyModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyModel.swift; sourceTree = "<group>"; };
 		C1C70E262B680B8E0079EEF6 /* Environment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Environment.swift; sourceTree = "<group>"; };
 		C1C70E282B680BCC0079EEF6 /* AppConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConstants.swift; sourceTree = "<group>"; };
 		C1C70E2A2B68167A0079EEF6 /* AppErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppErrors.swift; sourceTree = "<group>"; };
+		C1C85BE12B6B2CEF00C7B6EF /* AppCoreModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = AppCoreModel.xcdatamodel; sourceTree = "<group>"; };
 		C1DE4FF32B6965E40057A467 /* ConnectivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectivityManager.swift; sourceTree = "<group>"; };
 		C1F2C0602B6ADAA30054FB12 /* ConverterAPIServiceTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterAPIServiceTest.swift; sourceTree = "<group>"; };
 		C1F2C0622B6ADACE0054FB12 /* ConverterAPIRepositoryTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConverterAPIRepositoryTest.swift; sourceTree = "<group>"; };
@@ -232,7 +232,7 @@
 		C196F24D2B6344A900D94148 /* CoreDataModel */ = {
 			isa = PBXGroup;
 			children = (
-				C1C49DA32B6851DD00E419FB /* CurrencyCoreModel.xcdatamodeld */,
+				C1C85BE02B6B2CEF00C7B6EF /* AppCoreModel.xcdatamodeld */,
 			);
 			path = CoreDataModel;
 			sourceTree = "<group>";
@@ -536,12 +536,12 @@
 			files = (
 				C1A62E302B6323960048842B /* ConverterViewController.swift in Sources */,
 				C1F606012B6428430027BB2F /* ConverterViewModel.swift in Sources */,
-				C1C49DA52B6851DD00E419FB /* CurrencyCoreModel.xcdatamodeld in Sources */,
 				C1A62E402B6325940048842B /* AppTheme.swift in Sources */,
 				C1C70E272B680B8E0079EEF6 /* Environment.swift in Sources */,
 				C196F24F2B6344D600D94148 /* CoreDataStorage.swift in Sources */,
 				C16370C12B64720B0096BB7C /* CurrencyTableViewCell.swift in Sources */,
 				C1DE4FF42B6965E40057A467 /* ConnectivityManager.swift in Sources */,
+				C1C85BE22B6B2CEF00C7B6EF /* AppCoreModel.xcdatamodeld in Sources */,
 				C196F2472B6343B600D94148 /* APIRepository.swift in Sources */,
 				C14985742B69A21700E089E1 /* PopupViewController.swift in Sources */,
 				C1A62E2C2B6323960048842B /* AppDelegate.swift in Sources */,
@@ -966,14 +966,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		C1C49DA32B6851DD00E419FB /* CurrencyCoreModel.xcdatamodeld */ = {
+		C1C85BE02B6B2CEF00C7B6EF /* AppCoreModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				C1C49DA42B6851DD00E419FB /* CurrencyCoreModel.xcdatamodel */,
+				C1C85BE12B6B2CEF00C7B6EF /* AppCoreModel.xcdatamodel */,
 			);
-			currentVersion = C1C49DA42B6851DD00E419FB /* CurrencyCoreModel.xcdatamodel */;
-			name = CurrencyCoreModel.xcdatamodeld;
-			path = ../../CurrencyCoreModel.xcdatamodeld;
+			currentVersion = C1C85BE12B6B2CEF00C7B6EF /* AppCoreModel.xcdatamodel */;
+			path = AppCoreModel.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

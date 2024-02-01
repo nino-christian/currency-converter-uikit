@@ -56,7 +56,7 @@ final class APIService: APIServiceProtocol {
     }
     
     private func saveToPersistentStorage(currencies: [CurrencyModel]) {
-        persistentStorage.performBackgroundTask { [weak self] context in
+        persistentStorage.performBackgroundTask { context in
             
             let fetchRequest = NSFetchRequest<Currency>(entityName: "Currency")
             
@@ -75,7 +75,10 @@ final class APIService: APIServiceProtocol {
                         entity.name = currency.name
                         entity.rate = currency.rate
                         
-                        self?.persistentStorage.saveContext()
+                        //self?.persistentStorage.saveContext()
+                        do {
+                            try context.save()
+                        } catch {}
                     } else {
                         // do nothing
                     }
