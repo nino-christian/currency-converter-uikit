@@ -56,7 +56,6 @@ final class ConverterViewModel: ConverterViewModelProtocol {
                 
                do {
                  let entities = try context.fetch(fetchRequest)
-                   print(entities.count)
                    let currencyList = entities.map({ entity in
                        return CurrencyModel(name: entity.name ?? "N/A", rate: entity.rate)
                    })

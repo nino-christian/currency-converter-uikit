@@ -13,7 +13,7 @@ protocol CoreDataStorageProtocol: AnyObject {
     func performBackgroundTask(_ callBlock: @escaping (NSManagedObjectContext) -> Void)
 }
 
-final class CoreDataStorage: CoreDataStorageProtocol{
+final class CoreDataStorage: CoreDataStorageProtocol {
     
     // MARK: - Core Data stack
     private lazy var persistentContainer: NSPersistentContainer = {

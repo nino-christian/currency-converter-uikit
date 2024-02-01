@@ -43,8 +43,7 @@ final class APIRepository: APIRepositoryProtocol {
         request.allHTTPHeaderFields = headers
         
         let (data, response) = try await urlSession.data(for: request as URLRequest)
-        print(data)
-        print(response)
+
         return (data, response)
     }
 }

@@ -6,17 +6,19 @@
 //
 
 import XCTest
+import CoreData
 @testable import currency_converter
+
 
 final class ConverterViewModelTest: XCTestCase {
 
     let mockService = MockService()
-    let mockCoreData = CoreDataStorage()
+    let coreData = CoreDataStorage()
     var sut: ConverterViewModel!
     
     override func setUpWithError() throws {
         sut = ConverterViewModel(apiService: mockService, 
-                                 persistentStorage: mockCoreData)
+                                 persistentStorage: coreData)
     }
 
     override func tearDownWithError() throws {
@@ -25,7 +27,6 @@ final class ConverterViewModelTest: XCTestCase {
     }
     
     
-    @MainActor
     func testFetchDataFromService() async throws {
         
         let expectation = XCTestExpectation(description: "Data fetch. Data should be fetched")
@@ -39,11 +40,11 @@ final class ConverterViewModelTest: XCTestCase {
                            CurrencyModel(name: "AOA", rate: 832.5)
                   ]
         
-        
-        
         await sut.getCurrencies()
+        
         sut.currencyRates.sink { _ in
         } receiveValue: { currencies in
+            XCTAssertEqual(currencies, sampleData)
             resultData = currencies
             expectation.fulfill()
         }
@@ -52,6 +53,19 @@ final class ConverterViewModelTest: XCTestCase {
         await fulfillment(of: [expectation], timeout: 5, enforceOrder: true)
         
         XCTAssertEqual(resultData, sampleData, "Property should have data")
+    }
+    
+    func testConversionOfCurrencies() {
+        // amount
+        let amount: Double = 50
+        // selected input currency rate to USD is 2
+        let inputRate: Double = 2
+        // selected output currency rate to USD is 2
+        let outputRate: Double = 2
+        
+        let result = sut.convertCurrency(amount: amount, from: inputRate, to: outputRate)
+        
+        XCTAssertEqual(result, 50)
     }
 
     func testPerformanceExample() throws {

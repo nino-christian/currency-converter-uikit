@@ -23,22 +23,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "E32E8665-885F-4BAF-A55A-450EA6C9E161"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "currency-converter/ViewModel/ConverterViewModel.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "45"
-            endingLineNumber = "45"
-            landmarkName = "getCurrencies()"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "24A88DE2-EE25-4391-A02F-40AFE3F2D63B"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -55,16 +39,376 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "9759ADD3-23B4-456F-9BD9-8CB00A76B811"
-            shouldBeEnabled = "Yes"
+            uuid = "CD27EDC2-D4C2-4F60-BE4D-2D432ECA3B93"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "currency-converter/Repository/APIRepository.swift"
+            filePath = "currency-converter/ViewModel/ConverterViewModel.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "48"
-            endingLineNumber = "48"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "getCurrencies()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "CD27EDC2-D4C2-4F60-BE4D-2D432ECA3B93 - b14572f9ef9723f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "104">
+               </Location>
+               <Location
+                  uuid = "CD27EDC2-D4C2-4F60-BE4D-2D432ECA3B93 - b14572f9ef9723f4"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "36"
+                  endingLineNumber = "36"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "CD27EDC2-D4C2-4F60-BE4D-2D432ECA3B93 - b14572f9ef972397"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "100">
+               </Location>
+               <Location
+                  uuid = "CD27EDC2-D4C2-4F60-BE4D-2D432ECA3B93 - b14572f9ef972397"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "104">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "8B5980FF-C258-47D9-B67B-6885D585D093"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "currency-converter/ViewModel/ConverterViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "getCurrencies()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "8B5980FF-C258-47D9-B67B-6885D585D093 - 7704b791b7f063b0"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(1) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "80">
+               </Location>
+               <Location
+                  uuid = "8B5980FF-C258-47D9-B67B-6885D585D093 - b7299a4e05941d1f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(2) await resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "40">
+               </Location>
+               <Location
+                  uuid = "8B5980FF-C258-47D9-B67B-6885D585D093 - b14572f9ef9723b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "72">
+               </Location>
+               <Location
+                  uuid = "8B5980FF-C258-47D9-B67B-6885D585D093 - ea6906d3b6783b7"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(4) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "8B5980FF-C258-47D9-B67B-6885D585D093 - b14572f9ef9723b6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "8B5980FF-C258-47D9-B67B-6885D585D093 - 48e75eb6930543b5"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(6) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "34"
+                  endingLineNumber = "34"
+                  offsetFromSymbolStart = "48">
+               </Location>
+               <Location
+                  uuid = "8B5980FF-C258-47D9-B67B-6885D585D093 - b14572f9ef972397"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "35"
+                  endingLineNumber = "35"
+                  offsetFromSymbolStart = "100">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "852FFDC1-C374-45E5-8B0E-810699C6B772"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "currency-converter/Service/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "getCurrencies(baseCurrency:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "95ED5C42-316A-4D12-A19C-861BF043C0B3"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "currency-converter/Service/APIService.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "78"
+            endingLineNumber = "78"
+            landmarkName = "saveToPersistentStorage(currencies:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A24E2A8-E559-4685-A818-78D74B99CACF"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "currency-converter/ViewModel/ConverterViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "55"
+            endingLineNumber = "55"
+            landmarkName = "fetchCurrenciesFromStorage()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7A24E2A8-E559-4685-A818-78D74B99CACF - eb8631c14736fea3"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "192">
+               </Location>
+               <Location
+                  uuid = "7A24E2A8-E559-4685-A818-78D74B99CACF - 25c8fc2abed5bebd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(7) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "57"
+                  endingLineNumber = "57"
+                  offsetFromSymbolStart = "260">
+               </Location>
+               <Location
+                  uuid = "7A24E2A8-E559-4685-A818-78D74B99CACF - d9463382a9071d84"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "closure #1 (__C.NSManagedObjectContext) -&gt; () in closure #1 (Swift.CheckedContinuation&lt;Swift.Array&lt;Swift.Optional&lt;currency_converter.CurrencyModel&gt;&gt;, Swift.Error&gt;) -&gt; () in currency_converter.ConverterViewModel.fetchCurrenciesFromStorage() async throws -&gt; Swift.Array&lt;Swift.Optional&lt;currency_converter.CurrencyModel&gt;&gt;"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "55"
+                  endingLineNumber = "55"
+                  offsetFromSymbolStart = "128">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "15AF9C1B-6F73-41ED-A403-AD557A2F2E13"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "currency-converter/ViewModel/ConverterViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "getCurrencies()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "15AF9C1B-6F73-41ED-A403-AD557A2F2E13 - eb8631c14736e011"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(5) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "39"
+                  endingLineNumber = "39"
+                  offsetFromSymbolStart = "124">
+               </Location>
+               <Location
+                  uuid = "15AF9C1B-6F73-41ED-A403-AD557A2F2E13 - b14572f9ef9720ef"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "(3) suspend resume partial function for currency_converter.ConverterViewModel.getCurrencies() async -&gt; ()"
+                  moduleName = "currency-converter"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/dna-user/Documents/Personal/swift_study/currency-converter/currency-converter/ViewModel/ConverterViewModel.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "43"
+                  endingLineNumber = "43"
+                  offsetFromSymbolStart = "364">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "74141815-5944-4EA1-8549-F4910003F328"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "currency-converter/ViewModel/ConverterViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "fetchCurrenciesFromStorage()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "23CC612D-2BC1-4D7F-88DF-BC103851A7AE"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "currency-converter/ViewModel/ConverterViewModel.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "fetchCurrenciesFromStorage()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
